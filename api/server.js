@@ -10,5 +10,5 @@ app.use(express.json());
 app.use(router);
 
 app.listen(process.env.PORT,()=>{
-    console.log('API respondendo em http://localhost:'+process.env.PORT);
+    console.log('API respondendo em http://localhost: 5001');
 }); 

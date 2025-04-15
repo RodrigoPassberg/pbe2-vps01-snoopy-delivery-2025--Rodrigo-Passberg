@@ -1,24 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const Cliente = require('./controllers/cliente');
-const Telefone = require('./controllers/telefone');
+const Motorista = require('./controllers/Motorista');
 const Pedido = require('./controllers/pedido');
 
 router.get('/',(req, res)=>{
     res.json({titulo:'SNOOPY PetSHop'});
 });
 
-router.post('/clientes',Cliente.create);
-router.get('/clientes',Cliente.read);
-router.get('/clientes/:id',Cliente.readOne);
-router.patch('/clientes/:id',Cliente.update);
-router.delete('/clientes/:id',Cliente.remove);
-
-router.post('/telefones',Telefone.create);
-router.get('/telefones',Telefone.read);
-router.patch('/telefones/:id',Telefone.update);
-router.delete('/telefones/:id',Telefone.remove);
+router.post('/Motoristas',Motorista.create);
+router.get('/Motoristas',Motorista.read);
+router.get('/Motoristas/:id',Motorista.readOne);
+router.patch('/Motoristas/:id',Motorista.update);
+router.delete('/Motoristas/:id',Motorista.remove);
 
 router.post('/pedidos',Pedido.create);
 router.get('/pedidos',Pedido.read);
