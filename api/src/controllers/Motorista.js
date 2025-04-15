@@ -14,25 +14,21 @@ const create = async (req, res) => {
 
 const read = async (req, res) => {
     const Motoristas = await prisma.Motorista.findMany({
-        include:{
-            telefones: true
-        }
     });
     res.json(Motoristas);
 }
 
 const readOne = async (req, res) => {
     const Motoristas = await prisma.Motorista.findMany({
+        select: {
+            pedidos: true
+        },
         where:{
             id: Number(req.params.id)
         },
-        include:{
-            telefones:true,
-            pedidos: true
-        }
     });
     res.json(Motoristas);
-}
+} 
 
 const update = async (req, res) => {
     try {

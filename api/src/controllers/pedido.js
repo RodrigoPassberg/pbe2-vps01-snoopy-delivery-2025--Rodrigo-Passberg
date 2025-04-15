@@ -25,7 +25,7 @@ const readOne = async (req, res) => {
             id: Number(req.params.id)
         },
         include:{
-            cliente: true
+            motoristaid: true
         }
     });
     res.json(pedidos);

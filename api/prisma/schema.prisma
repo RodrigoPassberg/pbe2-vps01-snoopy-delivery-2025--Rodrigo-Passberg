@@ -7,29 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cliente{
+model Motorista{
   id Int @id @default(autoincrement())
-  cpf String? @db.VarChar(20) @unique
+  email String
   nome String
-  telefones Telefone[]
+  telefones String
   pedidos Pedido[]
-}
-
-model Telefone{
-  id Int @id @default(autoincrement())
-  clienteId Int
-  numero String @db.VarChar(20) @unique
-  tipo String @db.VarChar(20)
-  cliente Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
 }
 
 model Pedido{
   id Int @id @default(autoincrement())
-  clienteId Int
+  MotoristaId Int
   data DateTime @default(now())
   produto String
-  qtd Int
-  preco Decimal @db.Decimal(10,2)
-  subTotal Decimal? @db.Decimal(10,2)
-  cliente Cliente @relation(fields: [clienteId], references: [id])
+  valor Decimal @db.Decimal(10,2)
+  endereco String
+  numero String?
+  cep String
+  complemento String?
+  motorista Motorista @relation(fields: [MotoristaId], references: [id])
 }
